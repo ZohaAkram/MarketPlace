@@ -1,3 +1,4 @@
+const { assert } = require('chai');
 
 const Marketplace=artifacts.require("./Marketplace.sol");
 require('chai').use(require('chai-as-promised')).should();
@@ -53,7 +54,35 @@ contract('Marketplace',([deployer,seller,buyer])=>{
     assert.equal(product.purchased, false,'purchased is correct')   
            
 
-
-
-        })})
+       })
+    
+       it('sells Products',async()=>{
+           let prevSellerBal;
+           prevSellerBal= await web3.eth.getBalance(seller);
+           prevSellerBal=new web3.utils.BN(prevSellerBal);
+       result = await marketplace.buyBookProd(prodCount,{from:buyer,value:web3.utils.toWei('1','Ether')})       
+       const event= result.logs[0].args;
+       assert.equal(event.id.toNumber(),prodCount.toNumber(),'id is correct')
+       assert.equal(event.name,'Intro to Programming','name is correct')
+       assert.equal(event.price, 1000000000000000000,'price is correct')
+       assert.equal(event.owner,buyer ,'owner is correct')
+       assert.equal(event.purchased, true,'purchased is correct')   
+              
+         let newSellerBal;
+         newSellerBal=await web3.eth.getBalance(seller);
+         newSellerBal=new web3.utils.BN(newSellerBal)
+         let price
+         price=web3.utils.toWei('1','Ether')
+        price=new web3.utils.BN(price)
+        const expectedBal=prevSellerBal.add(price);
+        assert.equal(newSellerBal.toString(),expectedBal.toString());
+     
+     await marketplace.buyBookProd(99,{from:buyer,value:web3.utils.toWei('1','Ether')}).should.be.rejected;
+     await marketplace.buyBookProd(prodCount,{from:buyer,value:web3.utils.toWei('0.5','Ether')}).should.be.rejected;
+     await marketplace.buyBookProd(prodCount,{from:deployer,value:web3.utils.toWei('1','Ether')}).should.be.rejected;  
+     await marketplace.buyBookProd(prodCount,{from:buyer,value:web3.utils.toWei('1','Ether')}).should.be.rejected;
+    })
+    
+    
+    })
 })
