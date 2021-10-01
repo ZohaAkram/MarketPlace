@@ -1,6 +1,7 @@
-const { assert } = require("chai");
 
 const Marketplace=artifacts.require("./Marketplace.sol");
+require('chai').use(require('chai-as-promised')).should();
+
 contract('Marketplace',([deployer,seller,buyer])=>{
     let marketplace
     before(async()=>{
@@ -37,6 +38,10 @@ contract('Marketplace',([deployer,seller,buyer])=>{
        assert.equal(event.price, 1000000000000000000,'price is correct')
        assert.equal(event.owner,seller ,'owner is correct')
        assert.equal(event.purchased, false,'purchased is correct')   
-               })
-    })
+              
+
+    //failure
+  await await marketplace.createBookProd('',web3.utils.toWei('1','Ether'),{from:seller}).should.be.rejected;
+  await await marketplace.createBookProd('Intro to Programming',0,{from:seller}).should.be.rejected;
+}) })
 })

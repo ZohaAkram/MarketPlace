@@ -26,7 +26,7 @@ constructor()public {
 name="Online Book Marketplace"; }
 
 function createBookProd(string memory _name,uint _price) public{
-require(bytes(name).length>0); //checks for empty name
+require(bytes(_name).length>0); //checks for empty name
 require(_price> 0); //checks for price
 prodCount++;
 bookProducts[prodCount]=BookProduct(prodCount,_name,_price,msg.sender,false);
