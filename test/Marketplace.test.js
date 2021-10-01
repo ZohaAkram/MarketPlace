@@ -43,5 +43,17 @@ contract('Marketplace',([deployer,seller,buyer])=>{
     //failure
   await await marketplace.createBookProd('',web3.utils.toWei('1','Ether'),{from:seller}).should.be.rejected;
   await await marketplace.createBookProd('Intro to Programming',0,{from:seller}).should.be.rejected;
-}) })
+        }) 
+        it('lists Products',async()=>{
+    const product=await marketplace.bookProducts(prodCount)
+    assert.equal(product.id.toNumber(),prodCount.toNumber(),'id is correct')
+    assert.equal(product.name,'Intro to Programming','name is correct')
+    assert.equal(product.price, 1000000000000000000,'price is correct')
+    assert.equal(product.owner,seller ,'owner is correct')
+    assert.equal(product.purchased, false,'purchased is correct')   
+           
+
+
+
+        })})
 })
