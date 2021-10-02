@@ -77,7 +77,7 @@ contract('Marketplace',([deployer,seller,buyer])=>{
         const expectedBal=prevSellerBal.add(price);
         assert.equal(newSellerBal.toString(),expectedBal.toString());
      
-     await marketplace.buyBookProd(99,{from:buyer,value:web3.utils.toWei('1','Ether')}).should.be.rejected;
+     await marketplace.buyBookProd(100,{from:buyer,value:web3.utils.toWei('1','Ether')}).should.be.rejected;
      await marketplace.buyBookProd(prodCount,{from:buyer,value:web3.utils.toWei('0.5','Ether')}).should.be.rejected;
      await marketplace.buyBookProd(prodCount,{from:deployer,value:web3.utils.toWei('1','Ether')}).should.be.rejected;  
      await marketplace.buyBookProd(prodCount,{from:buyer,value:web3.utils.toWei('1','Ether')}).should.be.rejected;
