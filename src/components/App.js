@@ -39,6 +39,8 @@ const networkId=await web3.eth.net.getId()
 const abi=Marketplace.abi
 const address=Marketplace.networks[networkId].address
 const marketplace = web3.eth.Contract(abi,address)
+this.setState({marketplace})
+this.setState({loading:false})
   }
 
   constructor(props){
@@ -66,10 +68,14 @@ const marketplace = web3.eth.Contract(abi,address)
         <div className="container-fluid mt-5">
           <div className="row">
             <main role="main" className="col-lg-12 d-flex text-center">
+            <div id="content">
+                 <h1>Add Book</h1>
+                
+               </div>
+               
               <div className="content mr-auto ml-auto">
                 
-                <h1>Online Book MarketPlace</h1>
-               
+                {/* <h1>Online Book MarketPlace</h1> */}
                
               </div>
             </main>
