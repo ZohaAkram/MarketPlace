@@ -1,5 +1,5 @@
 # MarketPlace
---- #ONLINE BOOK MARKETPLACE 🔥🔥
+--- </br> ONLINE BOOK MARKETPLACE 🔥🔥
 --- #An online Decentralized book marketplace made on top of Ethereum Blockchain where a seller can sell his book and a buyer can buy the book without any middle man.
 --- Moreover, this application then transfers the owner of asset( in this case book) from the seller to buyer. 
 --- This application is connected with MetaMask through a private network where the two accounts are handled (seller and buyer) along with their wallet amount.
