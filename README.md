@@ -1,11 +1,11 @@
 # MarketPlace <br/>
---- <b>ONLINE BOOK MARKETPLACE 🔥🔥 <br/>
+--- <b> ONLINE BOOK MARKETPLACE 🔥🔥 </b> <br/>
 --- An online Decentralized book marketplace made on top of Ethereum Blockchain where a seller can sell his book and a buyer can buy the book without any middle man. <br/>
 --- Moreover, this application then transfers the owner of asset( in this case book) from the seller to buyer. <br/>
 --- This application is connected with MetaMask through a private network where the two accounts are handled (seller and buyer) along with their wallet amount. <br/>
 --- I have also written some tests so that no incorrect actions take place, these tests were passed by truffle. <br/>
---- IMPORTANT FOLDER:<br/>
+--- <i>IMPORTANT FOLDER:</i> <br/>
 --- In order to view the MarketPlace contract, please search for Marketplace.sol file in contracts folder. <br/>
 --- In order to view the MarketPlace test script, please search for Marketplace.test.js file in tests folder <br/>
 --- PS. Backend work is completed, still working on frontEnd.😊 <br/>
---- TECHNOLOGIES: Solidity with Truffle, Ganache and MetaMask. <br/><b>
+--- TECHNOLOGIES: Solidity with Truffle, Ganache and MetaMask. <br/>
